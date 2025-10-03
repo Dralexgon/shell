@@ -38,10 +38,6 @@
         };
         app2unit = pkgs.callPackage ./nix/app2unit.nix {inherit pkgs;};
         caelestia-cli = inputs.caelestia-cli.packages.${pkgs.system}.default;
-
-        xkeyboard-config = pkgs.xkeyboard-config;
-        # xkeyboard_config = pkgs.xkeyboard-config;
-        # xkeyboardconfig = pkgs.xkeyboard-config;
       };
       with-cli = caelestia-shell.override {withCli = true;};
       debug = caelestia-shell.override {debug = true;};
@@ -55,7 +51,7 @@
         pkgs.mkShell.override {stdenv = shell.stdenv;} {
           inputsFrom = [shell shell.plugin shell.extras];
           packages = with pkgs; [clazy material-symbols rubik nerd-fonts.caskaydia-cove];
-          CAELESTIA_XKB_RULES_PATH = "${pkgs.xkeyboard-config}/share/xkeyboard-config-2/rules/base.lst";
+          CAELESTIA_XKB_RULES_PATH = "${pkgs.xkeyboard_config}/share/xkeyboard-config-2/rules/base.lst";
         };
     });
 
