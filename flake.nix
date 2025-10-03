@@ -38,6 +38,10 @@
         };
         app2unit = pkgs.callPackage ./nix/app2unit.nix {inherit pkgs;};
         caelestia-cli = inputs.caelestia-cli.packages.${pkgs.system}.default;
+
+        xkeyboard-config = pkgs.xkeyboard-config;
+        xkeyboard_config = pkgs.xkeyboard-config;
+        xkeyboardconfig = pkgs.xkeyboard-config;
       };
       with-cli = caelestia-shell.override {withCli = true;};
       debug = caelestia-shell.override {debug = true;};
